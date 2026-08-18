@@ -1,0 +1,539 @@
+@charset "UTF-8";
+
+/* =========================================================
+   Estudio Soulé — Landing Page
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   UTILIDADES
+   --------------------------------------------------------- */
+
+.text-white-75 {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.btn-xl {
+  padding: 1.25rem 2.25rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 10rem;
+}
+
+hr.divider {
+  height: 0.2rem;
+  max-width: 3.25rem;
+  margin: 1.5rem auto;
+  background-color: #3a9af4;
+  opacity: 1;
+  border: none;
+  box-shadow: none;
+}
+
+hr.divider-light {
+  background-color: #fff;
+}
+
+
+/* ---------------------------------------------------------
+   NAVBAR
+   --------------------------------------------------------- */
+
+#mainNav {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+#mainNav .navbar-brand {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  color: #212529;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link {
+  color: #6c757d;
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.75rem 0;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link:hover,
+#mainNav .navbar-nav .nav-item .nav-link:active {
+  color: #f4623a;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link.active {
+  color: #3a9af4 !important;
+}
+
+#mainNav.navbar-shrink .navbar-nav .nav-item .nav-link:hover {
+  color: #3a9af4 !important;
+}
+
+#mainNav .navbar-collapse .navbar-nav .nav-link:hover,
+#mainNav .navbar-collapse .navbar-nav .nav-link:focus {
+  color: #3a9af4 !important;
+}
+
+@media (min-width: 992px) {
+  #mainNav {
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  #mainNav .navbar-brand {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  #mainNav .navbar-brand:hover {
+    color: #fff;
+  }
+
+  #mainNav .navbar-nav .nav-item .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0 1rem;
+  }
+
+  #mainNav .navbar-nav .nav-item .nav-link:hover {
+    color: #fff;
+  }
+
+  #mainNav .navbar-nav .nav-item:last-child .nav-link {
+    padding-right: 0;
+  }
+
+  #mainNav.navbar-shrink {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+  }
+
+  #mainNav.navbar-shrink .navbar-brand {
+    color: #212529;
+  }
+
+  #mainNav.navbar-shrink .navbar-brand:hover {
+    color: #f4623a;
+  }
+
+  #mainNav.navbar-shrink .navbar-nav .nav-item .nav-link {
+    color: #212529;
+  }
+
+  #mainNav.navbar-shrink .navbar-nav .nav-item .nav-link:hover {
+    color: #f4623a;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   NAVBAR LOGO
+   --------------------------------------------------------- */
+
+.navbar-logo {
+  height: 40px;
+  width: auto;
+}
+
+.wisehost-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin-left: 0.3rem;
+  letter-spacing: -0.02em;
+}
+
+.wise {
+  color: #123B5D;
+}
+
+
+/* ---------------------------------------------------------
+   HERO — MASTHEAD (base)
+   --------------------------------------------------------- */
+
+header.masthead {
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 4.5rem);
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.12) 0%,
+      rgba(0, 0, 0, 0.40) 45%,
+      rgba(0, 0, 0, 0.35) 55%,
+      rgba(0, 0, 0, 0.12) 100%
+    ),
+    url("../assets/img/hero_edificio.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+header.masthead h1,
+header.masthead .h1 {
+  font-size: 2.25rem;
+}
+
+header.masthead h1 {
+  font-weight: 650 !important;
+}
+
+header.masthead p {
+  font-weight: 580 !important;
+}
+
+@media (min-width: 992px) {
+  header.masthead {
+    height: 100vh;
+    min-height: 40rem;
+    padding-top: 4.5rem;
+    padding-bottom: 0;
+  }
+
+  header.masthead p {
+    font-size: 1.15rem;
+  }
+
+  header.masthead h1,
+  header.masthead .h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  header.masthead h1,
+  header.masthead .h1 {
+    font-size: 3.5rem;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   HERO — MASTHEAD (posicionamiento y overlay)
+   --------------------------------------------------------- */
+
+.masthead {
+  position: relative;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.masthead::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.55) 35%,
+    rgba(0, 0, 0, 0.25) 58%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  z-index: 1;
+}
+
+.masthead > .container {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+.masthead .row {
+  min-height: 100vh;
+}
+
+
+/* ---------------------------------------------------------
+   LANDING — CONTENIDO IZQUIERDO
+   --------------------------------------------------------- */
+
+.landing-content {
+  max-width: 720px;
+  text-align: left;
+  transform: translateY(-40px);
+}
+
+.landing-content h1 {
+  margin-bottom: 1.5rem;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(2.4rem, 4vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.12;
+  color: #ffffff;
+}
+
+.landing-content p {
+  max-width: 650px;
+  margin-bottom: 2rem;
+  font-family: "Manrope", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.landing-content .divider {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media (max-width: 991.98px) {
+  .landing-content {
+    transform: translateY(-70px);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   LANDING — BENEFICIOS
+   --------------------------------------------------------- */
+
+.landing-benefits {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.landing-benefit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.landing-benefit i {
+  font-size: 1.05rem;
+  color: #3a9af4;
+}
+
+
+/* ---------------------------------------------------------
+   LANDING — FORMULARIO
+   --------------------------------------------------------- */
+
+.landing-form {
+  width: 100%;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: 0;
+  padding: 2.4rem 2.2rem;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  transform: translateY(-40px);
+}
+
+.landing-form-header {
+  margin-bottom: 1.5rem;
+}
+
+.landing-form-header h2 {
+  margin-bottom: 0.75rem;
+  font-family: "Manrope", sans-serif;
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #212529;
+}
+
+.landing-form-header p {
+  margin-bottom: 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #6c757d;
+}
+
+.landing-form .form-control {
+  font-family: "Manrope", sans-serif;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.landing-form .form-control:focus {
+  border-color: #3a9af4;
+  box-shadow: 0 0 0 0.2rem rgba(58, 154, 244, 0.15);
+}
+
+.landing-form .form-floating > label {
+  font-family: "Manrope", sans-serif;
+  color: #6c757d;
+}
+
+.landing-form textarea.form-control {
+  min-height: 110px;
+}
+
+.landing-form .btn-primary {
+  width: 100%;
+  padding: 0.9rem 1.25rem;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #3a9af4;
+  border-color: #3a9af4;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.landing-form .btn-primary:hover {
+  background-color: #2388e6;
+  border-color: #2388e6;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(58, 154, 244, 0.25);
+}
+
+#submitButton {
+  background-color: #3a9af4;
+  border-color: #3a9af4;
+}
+
+#submitButton:hover {
+  background-color: #123B5D;
+  border-color: #123B5D;
+}
+
+
+/* ---------------------------------------------------------
+   TABLET (max 991px)
+   --------------------------------------------------------- */
+
+@media (max-width: 991.98px) {
+  .masthead {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .masthead .row {
+    min-height: 100vh;
+    padding-top: 120px;
+    padding-bottom: 60px;
+  }
+
+  .landing-content {
+    max-width: 650px;
+    margin-bottom: 3rem;
+  }
+
+  .landing-form {
+    max-width: 500px;
+    margin-left: 0;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE (max 575px)
+   --------------------------------------------------------- */
+
+@media (max-width: 575.98px) {
+  .masthead {
+    min-height: 100vh;
+    background-position: center;
+  }
+
+  .masthead::before {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.55) 45%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+  }
+
+  .masthead .row {
+    padding-top: 110px;
+    padding-bottom: 40px;
+  }
+
+  .landing-content {
+    margin-bottom: 2.5rem;
+  }
+
+  .landing-content h1 {
+    font-size: 2.25rem;
+    line-height: 1.15;
+  }
+
+  .landing-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .landing-benefits {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .landing-form {
+    max-width: none;
+    padding: 1.75rem 1.35rem;
+    border-radius: 12px;
+  }
+
+  .landing-form-header h2 {
+    font-size: 1.35rem;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   MENSAJE DE ÉXITO
+   --------------------------------------------------------- */
+
+.landing-success {
+  text-align: center;
+  padding: 35px 30px 30px;
+  color: #123B5D;
+}
+
+.landing-success-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(58, 154, 244, 0.12);
+  color: #3A9AF4;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.landing-success h3 {
+  margin: 0 0 12px;
+  font-family: "Manrope", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #123B5D;
+}
+
+.landing-success p {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #64748B;
+}

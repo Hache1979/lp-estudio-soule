@@ -299,8 +299,8 @@ header.masthead p {
 .landing-benefits {
   display: flex;
   align-items: center;
-  gap: 28px;
-  flex-wrap: wrap;
+  gap: 16px;
+  flex-wrap: nowrap;
 }
 
 .landing-benefit {

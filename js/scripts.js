@@ -152,13 +152,31 @@ window.addEventListener("DOMContentLoaded", function () {
 
             })
 
-            .then(function (response) {
+                .then(function (response) {
 
-                if (response.ok) {
+                    if (response.ok) {
 
-                    mostrarExito();
+                        mostrarExito();
 
-                } else {
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-18430708679/TueXCKK0we4cEMeXudRE',
+                            'value': 1.0,
+                            'currency': 'ARS'
+                        });
+
+                    } else {
+
+                        submitButton.disabled = false;
+
+                        submitButton.textContent = "Quiero que me contacten";
+
+                        alert("Hubo un problema al enviar el formulario. Por favor intentá de nuevo.");
+
+                    }
+
+                })
+
+                .catch(function () {
 
                     submitButton.disabled = false;
 
@@ -166,19 +184,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
                     alert("Hubo un problema al enviar el formulario. Por favor intentá de nuevo.");
 
-                }
-
-            })
-
-            .catch(function () {
-
-                submitButton.disabled = false;
-
-                submitButton.textContent = "Quiero que me contacten";
-
-                alert("Hubo un problema al enviar el formulario. Por favor intentá de nuevo.");
-
-            });
+                });
 
 
         });

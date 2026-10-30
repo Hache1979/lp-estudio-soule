@@ -100,11 +100,6 @@ window.addEventListener("DOMContentLoaded", function () {
         "submitSuccessMessage"
     );
 
-    const formHeader = document.querySelector(
-        ".landing-form-header"
-    );
-
-
     if (contactForm && successMessage) {
 
 
@@ -156,13 +151,40 @@ window.addEventListener("DOMContentLoaded", function () {
 
                     if (response.ok) {
 
-                        mostrarExito();
+                        contactForm.reset();
 
-                        gtag('event', 'conversion', {
-                            'send_to': 'AW-18430708679/TueXCKK0we4cEMeXudRE',
-                            'value': 1.0,
-                            'currency': 'ARS'
-                        });
+                        // Redirigir a la página de gracias recién cuando
+                        // Google Ads registró la conversión (máx. 1,5 s)
+                        let redirigido = false;
+
+                        function irAGracias() {
+
+                            if (redirigido) {
+                                return;
+                            }
+
+                            redirigido = true;
+
+                            window.location.href = "/landing/gracias.html";
+
+                        }
+
+                        setTimeout(irAGracias, 1500);
+
+                        if (typeof gtag === "function") {
+
+                            gtag('event', 'conversion', {
+                                'send_to': 'AW-18430708679/TueXCKK0we4cEMeXudRE',
+                                'value': 1.0,
+                                'currency': 'ARS',
+                                'event_callback': irAGracias
+                            });
+
+                        } else {
+
+                            irAGracias();
+
+                        }
 
                     } else {
 
@@ -188,100 +210,6 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
         });
-
-
-        function mostrarExito() {
-
-
-            // ==========================================
-            // LIMPIAR FORMULARIO
-            // ==========================================
-
-            contactForm.reset();
-
-
-
-            // ==========================================
-            // OCULTAR HEADER
-            // ==========================================
-
-            if (formHeader) {
-
-                formHeader.style.display = "none";
-
-            }
-
-
-
-            // ==========================================
-            // OCULTAR FORMULARIO
-            // ==========================================
-
-            contactForm.style.display = "none";
-
-
-
-            // ==========================================
-            // MOSTRAR SUCCESS
-            // ==========================================
-
-            successMessage.style.display = "block";
-
-            successMessage.style.visibility = "visible";
-
-            successMessage.style.opacity = "1";
-
-
-
-            // Asegurar visibilidad del contenido
-
-            const successIcon =
-                successMessage.querySelector(
-                    ".landing-success-icon"
-                );
-
-            const successTitle =
-                successMessage.querySelector("h3");
-
-            const successText =
-                successMessage.querySelector("p");
-
-
-
-            if (successIcon) {
-
-                successIcon.style.display = "flex";
-
-                successIcon.style.visibility = "visible";
-
-                successIcon.style.opacity = "1";
-
-            }
-
-
-            if (successTitle) {
-
-                successTitle.style.display = "block";
-
-                successTitle.style.visibility = "visible";
-
-                successTitle.style.opacity = "1";
-
-            }
-
-
-            if (successText) {
-
-                successText.style.display = "block";
-
-                successText.style.visibility = "visible";
-
-                successText.style.opacity = "1";
-
-            }
-
-
-        }
 
     }
 

@@ -612,3 +612,22 @@ header.masthead .landing-privacy-notice {
   color: #dc3545;
   font-weight: 600;
 }
+
+
+/* ---------------------------------------------------------
+   HERO — CELULAR: menos espacio vacío arriba del título
+   --------------------------------------------------------- */
+
+@media (max-width: 991.98px) {
+
+  .masthead,
+  .masthead .row {
+    min-height: auto;
+  }
+
+  .masthead .row {
+    align-content: flex-start;
+    padding-top: 2rem;
+  }
+
+}

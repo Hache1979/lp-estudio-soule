@@ -204,6 +204,32 @@ window.addEventListener("DOMContentLoaded", function () {
 
             const submitButton = document.getElementById("submitButton");
 
+            const errorMessage = document.getElementById("submitErrorMessage");
+
+
+            // Evitar envíos dobles
+            if (submitButton.disabled) {
+                return;
+            }
+
+
+            function mostrarError() {
+
+                submitButton.disabled = false;
+
+                submitButton.textContent = "Quiero que me contacten";
+
+                if (errorMessage) {
+                    errorMessage.classList.remove("d-none");
+                }
+
+            }
+
+
+            if (errorMessage) {
+                errorMessage.classList.add("d-none");
+            }
+
             submitButton.disabled = true;
 
             submitButton.textContent = "Enviando...";
@@ -260,11 +286,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
                     } else {
 
-                        submitButton.disabled = false;
-
-                        submitButton.textContent = "Quiero que me contacten";
-
-                        alert("Hubo un problema al enviar el formulario. Por favor intentá de nuevo.");
+                        mostrarError();
 
                     }
 
@@ -272,11 +294,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
                 .catch(function () {
 
-                    submitButton.disabled = false;
-
-                    submitButton.textContent = "Quiero que me contacten";
-
-                    alert("Hubo un problema al enviar el formulario. Por favor intentá de nuevo.");
+                    mostrarError();
 
                 });
 

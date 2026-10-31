@@ -189,7 +189,12 @@
 
                         <form id="contactForm" novalidate>
 
+                            <input type="hidden" name="_subject" value="Nueva consulta - Estudio Soulé (Landing)">
+
                             <input type="hidden" name="origen" value="Landing ES">
+
+                            <!-- Antispam: los bots completan este campo, las personas no lo ven -->
+                            <input type="text" name="_gotcha" class="d-none" tabindex="-1" autocomplete="off">
 
 
                             <!-- NAME -->
@@ -284,6 +289,17 @@
                             </p>
 
                         </form>
+
+
+
+                        <!-- ==========================================
+                             ERROR MESSAGE
+                        =========================================== -->
+
+                        <div class="landing-error d-none" id="submitErrorMessage" role="alert">
+                            No pudimos enviar tu consulta. Probá de nuevo o escribinos por
+                            <a href="https://wa.me/5491153342686" target="_blank" rel="noopener">WhatsApp</a>.
+                        </div>
 
 
 

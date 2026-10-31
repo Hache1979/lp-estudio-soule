@@ -593,3 +593,21 @@ header.masthead p {
 .landing-privacy-notice a:hover {
   color: #123B5D;
 }
+
+
+/* ---------------------------------------------------------
+   ERROR MESSAGE
+   --------------------------------------------------------- */
+
+.landing-error {
+  margin-top: 1rem;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #dc3545;
+}
+
+.landing-error a {
+  color: #dc3545;
+  font-weight: 600;
+}

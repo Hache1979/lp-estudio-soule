@@ -576,10 +576,11 @@ header.masthead p {
    PRIVACY NOTICE
    --------------------------------------------------------- */
 
-.landing-privacy-notice {
+header.masthead .landing-privacy-notice {
   margin: 0.9rem 0 0;
   font-family: "Manrope", sans-serif;
   font-size: 0.8rem;
+  font-weight: 500 !important;
   line-height: 1.5;
   text-align: center;
   color: #64748B;

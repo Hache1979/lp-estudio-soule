@@ -235,14 +235,14 @@
                             <div class="form-floating mb-3">
 
                                 <input class="form-control" id="phone" name="phone" type="tel" placeholder="Teléfono"
-                                    inputmode="numeric" pattern="[0-9]{10}" maxlength="10" minlength="10" required>
+                                    inputmode="tel" autocomplete="tel" required>
 
                                 <label for="phone">
                                     Teléfono
                                 </label>
 
                                 <div class="invalid-feedback">
-                                    Ingresá un teléfono de 10 dígitos.
+                                    Ingresá tu teléfono con código de área (ej: 11 2345-6789).
                                 </div>
 
                             </div>
@@ -277,6 +277,11 @@
                                 </button>
 
                             </div>
+
+                            <p class="landing-privacy-notice">
+                                Al enviar, aceptás nuestra
+                                <a href="/politica-de-privacidad.html">Política de privacidad</a>.
+                            </p>
 
                         </form>
 

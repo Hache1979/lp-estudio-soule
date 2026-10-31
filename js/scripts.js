@@ -100,6 +100,70 @@ window.addEventListener("DOMContentLoaded", function () {
         "submitSuccessMessage"
     );
 
+    const phoneInput = document.getElementById("phone");
+
+
+
+    // ==========================================
+    // TELÉFONO
+    // ==========================================
+
+    // Deja solo los dígitos y quita +54, el 9 de celular, el 0 y el 15
+    // (ej: "+54 9 11 4873-6162" o "011 15 4873-6162" → "1148736162")
+    function normalizarTelefono(valor) {
+
+        let numero = valor.replace(/\D/g, "");
+
+        if (numero.length > 11 && numero.startsWith("54")) {
+            numero = numero.slice(2);
+        }
+
+        if (numero.length === 11 && numero.startsWith("9")) {
+            numero = numero.slice(1);
+        }
+
+        if (numero.startsWith("0")) {
+            numero = numero.slice(1);
+        }
+
+        // 15 después del código de área (2, 3 o 4 dígitos)
+        if (numero.length === 12) {
+
+            for (const largoArea of [2, 3, 4]) {
+
+                if (numero.substr(largoArea, 2) === "15") {
+                    numero = numero.slice(0, largoArea) + numero.slice(largoArea + 2);
+                    break;
+                }
+
+            }
+
+        }
+
+        return numero;
+
+    }
+
+
+    // Válido: 10 dígitos con código de área (11, 2xx o 3xx)
+    function validarTelefono() {
+
+        const numero = normalizarTelefono(phoneInput.value);
+
+        const esValido = /^(11\d{8}|[23]\d{9})$/.test(numero);
+
+        phoneInput.setCustomValidity(esValido ? "" : "Teléfono inválido");
+
+        return numero;
+
+    }
+
+
+    if (phoneInput) {
+        phoneInput.addEventListener("input", validarTelefono);
+    }
+
+
     if (contactForm && successMessage) {
 
 
@@ -117,12 +181,20 @@ window.addEventListener("DOMContentLoaded", function () {
             // VALIDACIÓN
             // ==========================================
 
+            const telefono = phoneInput ? validarTelefono() : "";
+
             if (!contactForm.checkValidity()) {
 
                 contactForm.classList.add("was-validated");
 
                 return;
 
+            }
+
+
+            // Enviar el número limpio
+            if (phoneInput) {
+                phoneInput.value = telefono;
             }
 
 
